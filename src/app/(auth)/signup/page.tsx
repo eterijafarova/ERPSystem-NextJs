@@ -44,7 +44,7 @@ export default function Page() {
           <Input
             value={form.name}
             onChange={(e) => change("name", e.target.value)}
-            placeholder="John Doe"
+            placeholder="Name Surname"
           />
         </div>
         <div>
@@ -55,7 +55,7 @@ export default function Page() {
             type="email"
             value={form.email}
             onChange={(e) => change("email", e.target.value)}
-            placeholder="name@company.com"
+            placeholder="name@gmail.com"
             required
           />
         </div>

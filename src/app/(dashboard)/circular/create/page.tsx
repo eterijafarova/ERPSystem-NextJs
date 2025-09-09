@@ -8,7 +8,7 @@ export default function CreateCircular() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [date, setDate] = useState(new Date().toLocaleDateString());
-  const [type, setType] = useState("General Memo");
+  const [type, setType] = useState("General");
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
 

@@ -16,7 +16,6 @@ export default function AuthShell({
 }) {
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
-      {/* Левая часть */}
       <div className="flex flex-col px-6 md:px-10 pt-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

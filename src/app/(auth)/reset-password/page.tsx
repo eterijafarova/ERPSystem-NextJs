@@ -37,7 +37,7 @@ export default function Page() {
           <Input
             value={form.token}
             onChange={(e) => change("token", e.target.value)}
-            placeholder="ABCDE1"
+            placeholder="Enter reset code..."
             required
           />
         </div>

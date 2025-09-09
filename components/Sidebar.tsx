@@ -1,4 +1,3 @@
-// components/Sidebar.tsx
 import Link from "next/link";
 import { Home, Users, FileText, Bell, Settings } from "lucide-react";
 

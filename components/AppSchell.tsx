@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import ProfileMenu from "./ProfileMenu";
 import Link from "next/link";
 
 export default function AppShell({ children }: { children: ReactNode }) {
@@ -33,9 +32,7 @@ export default function AppShell({ children }: { children: ReactNode }) {
         </nav>
       </aside>
       <main>
-        <header className="flex items-center justify-end border-b px-6 h-14">
-          <ProfileMenu />
-        </header>
+        <header className="flex items-center justify-end border-b px-6 h-14"></header>
         <div className="p-6">{children}</div>
       </main>
     </div>

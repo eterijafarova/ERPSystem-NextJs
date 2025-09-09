@@ -9,15 +9,15 @@ type StaffMember = {
   lastName: string;
   gender: string;
   staffId: string;
+  phoneNumber: string;
   role: string;
   designation: string;
-  phoneNumber: string;
 };
 
 export default function StaffPage() {
   const [staff, setStaff] = useState<StaffMember[]>([]);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("all");
   const [page, setPage] = useState(1);
   const pageSize = 10;
 
@@ -32,7 +32,8 @@ export default function StaffPage() {
   }, []);
 
   const filtered = staff.filter((s) => {
-    const matchesFilter = filter === "" || s.designation === filter;
+    const matchesFilter =
+      filter === "all" || s.gender.toLowerCase() === filter.toLowerCase();
     const matchesSearch =
       s.firstName.toLowerCase().includes(search.toLowerCase()) ||
       s.lastName.toLowerCase().includes(search.toLowerCase());
@@ -78,10 +79,9 @@ export default function StaffPage() {
           }}
           className="border px-3 py-2 rounded-lg"
         >
-          <option value="">Select designation</option>
-          <option value="I.T">I.T</option>
-          <option value="Admin Staff">Admin Staff</option>
-          <option value="Human Resources Staff">Human Resources Staff</option>
+          <option value="all">All Staff</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
         </select>
       </div>
 

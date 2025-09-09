@@ -10,6 +10,7 @@ type Circular = {
   to: string;
   date: string;
   type: string;
+  message?: string;
 };
 
 export default function CircularsPage() {
@@ -17,6 +18,7 @@ export default function CircularsPage() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [page, setPage] = useState(1);
+  const [selected, setSelected] = useState<Circular | null>(null);
   const pageSize = 10;
 
   useEffect(() => {
@@ -102,13 +104,39 @@ export default function CircularsPage() {
               <td>{c.to}</td>
               <td>{c.date}</td>
               <td>{c.type}</td>
-              <td className="text-blue-500">
-                <Link href={`/circulars/${c.id}`}>View more</Link>
+              <td>
+                <button
+                  onClick={() => setSelected(c)}
+                  className="text-blue-500 underline"
+                >
+                  View more
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {selected && (
+        <div className="mt-6 p-4 border rounded bg-gray-50">
+          <h3 className="font-semibold text-lg mb-2">{selected.title}</h3>
+          <p>
+            <b>From:</b> {selected.from} <br />
+            <b>To:</b> {selected.to} <br />
+            <b>Date:</b> {selected.date} <br />
+            <b>Type:</b> {selected.type}
+          </p>
+          <p className="mt-2 text-gray-700">
+            {selected.message || "No detailed message provided."}
+          </p>
+          <button
+            onClick={() => setSelected(null)}
+            className="mt-3 px-3 py-1 bg-red-500 text-white rounded"
+          >
+            Close
+          </button>
+        </div>
+      )}
 
       <div className="mt-4 text-gray-700 font-medium">
         Total Circulars: {circulars.length}
